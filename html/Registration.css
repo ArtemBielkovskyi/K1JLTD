@@ -1,0 +1,188 @@
+*{
+    margin:0;
+    padding:0;
+    background-color: white;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+}
+
+.header{
+    padding: 1 0;
+    text-align: center;
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+button{
+    margin-right: -5px;
+    width: 10%;
+    height: 44px;
+    border:0;
+    background-color: white;
+    transition: all 0.1s; 
+    cursor:pointer;
+    margin-bottom: 5px;
+}
+
+label{
+    background-color:#e4e3e3 ;
+}
+
+.Log{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    width: 5%;
+}
+
+.Reg{
+    display: inline-block;
+    position: absolute;
+    right: 115px;
+    width: 5%;
+} 
+
+button:hover{
+    border-bottom:1px solid black;
+}
+
+button:active{
+    background-color: #000000;
+    color: white;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+i{
+    margin-right:10px;
+}
+
+.RegistrationBlock{
+    width: 400px;
+    height:490px;
+    background-color: #fafafa;
+    margin: auto;
+    margin-top:200px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 4px #0000003f;
+    padding-top: 10px;
+}
+
+.RegTxt{
+    background-color: #fafafa;
+    font-size: 1.5em;
+    margin-left: 19%;
+    display: inline-block;
+    margin-right:110px;
+}
+
+.fa-arrow-left-long{
+    margin-top:6px;
+    display: inline-block;
+    margin-left: 25px;
+    font-size: 1.5em;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.fa-arrow-left-long:hover{
+    opacity: 70%;
+}
+
+.fa-user{
+    margin-top: 70px;
+    margin-left:50px;
+    font-size: 1.1em;
+    background-color: #fafafa;
+}
+
+.UserTxt{
+    background-color: #fafafa;
+    font-size: 1.1em;
+    margin-right: 150px;
+}
+
+input{
+    margin-left:50px;
+    margin-top: 10px;
+    width: 290px;
+    height: 35px;
+    font-size: 1.1em;
+    text-decoration: none;
+    border: solid 1px black;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.fa-envelope,
+.fa-lock{
+    margin-top: 20px;
+    margin-left:50px;
+    font-size: 1.1em;
+    background-color: #fafafa;
+}
+
+
+.Submit{
+    display:block;
+    margin: auto;
+    margin-top:50px;
+    width: 200px;
+    background-color: rgb(72, 161, 72);
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.Submit:hover{
+    border-bottom:none;
+    opacity: 90%;
+    box-shadow: 2px 2px 4px #00000038;
+}
+
+.Submit:active{
+    background-color: rgb(72, 161, 72);
+    color: white;
+    opacity: 70%;
+}
+
+.block{
+    background-color: rgb(138, 0, 0);
+    width: 300px;
+    height: 40px;
+    color:white;
+    font-size: 1.7em;
+    text-align: center;
+    padding-top: 10px;
+    margin:auto;
+    z-index: -1;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 2px 2px 4px #00000038;
+}
+
+.blockLong{
+    background-color: rgb(138, 0, 0);
+    width: 300px;
+    height: 70px;
+    color:white;
+    font-size: 1.7em;
+    text-align: center;
+    padding-top: 10px;
+    margin:auto;
+    z-index: -1;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 2px 2px 4px #00000038;
+}

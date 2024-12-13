@@ -1,0 +1,114 @@
+*{
+    margin:0;
+    padding:0;
+    background-color: white;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+}
+
+.header{
+    padding: 1 0;
+    text-align: center;
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+i{
+    margin-right:10px;
+}
+
+button{
+    margin-right: -5px;
+    width: 10%;
+    height: 44px;
+    border:0;
+    background-color: white;
+    transition: all 0.1s; 
+    cursor:pointer;
+    margin-bottom: 5px;
+}
+
+.Log{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    width: 5%;
+}
+
+.Reg{
+    display: inline-block;
+    position: absolute;
+    right: 115px;
+    width: 5%;
+} 
+
+button:hover{
+    border-bottom:1px solid black;
+}
+
+button:active{
+    background-color: #000000;
+    color: white;
+}
+
+.logo{
+    cursor: pointer;
+}
+span{
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000;
+    left: 38%;
+    margin-top: 20%;
+}
+
+.Button{
+    display: inline-block;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+}
+
+.LoginButton{
+    margin-left: 40%;
+}
+
+.usericon{
+    position: absolute;
+    right:130px;
+    top:10px;
+    font-size: 1.2em;
+    color: #000;
+}
+
+.logoff{
+    position: absolute;
+    right:10px;
+    width: 100px;
+    top:-0px;
+}
+
+.usersDataBlock{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 43%;
+    text-align: center;
+    top: 30%;
+    color: white;
+    font-size: 1.7em;
+    padding-top: 7%;
+    background-color: grey;
+}
