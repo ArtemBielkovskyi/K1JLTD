@@ -6,7 +6,7 @@ $ExistingEmails = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     $existingEmail = $conn->prepare("SELECT email FROM userdata WHERE email = ?");
     $existingEmail->bind_param("s", $email);

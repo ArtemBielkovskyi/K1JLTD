@@ -5,21 +5,25 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $stmt = $conn->prepare("SELECT * FROM userdata WHERE email = ? AND password = ?");
-    $stmt->bind_param("ss", $email, $password);
+    
+    $stmt = $conn->prepare("SELECT password FROM userdata WHERE email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $_SESSION['email'] = $email;
-        $_SESSION['username'] = $row['username'];
-        session_regenerate_id();
-        header("Location: UnSignedAnalyticsPage.php");
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result( $password);
+        $stmt->fetch();
+        if (password_verify($_POST["password"], $password)){
+            $row = $result->fetch_assoc();
+            $_SESSION['email'] = $email;
+            $_SESSION['username'] = $row['username'];
+            session_regenerate_id();
+            header("Location: UnSignedAnalyticsPage.php");
+        } else {
+            $message = "Invalid password";
+        }
     } else {
-        $message = "Invalid email or password";
+        $message = "Invalid email";
     }
     $stmt->close();
     $conn->close();
