@@ -30,12 +30,13 @@
         <div class="HeaderPic">
             K1J LTD
         </div>
-        <h1 class="About">About us</h1>
-        <div class="InformationBox">
+         <div class="InformationBox">
+            <div class = "aboutUsTitle">About us</div>
             <div class="AboutUsText block"><h4 class="AboutUsTextInBlock">The company's first location, opened in 1976 under the Price Club name, was in a converted airplane hangar on Morena Boulevard in San Diego. Originally serving only small businesses, the company found it could achieve far greater buying clout by also serving a selected audience of non-business members.
                 Our operating philosophy has been simple. Keep costs down and pass the savings on to our members. Our large membership base and tremendous buying power, combined with our never-ending quest for efficiency, result in the best possible prices for our members. Since resuming the K1JLTD name in 1997, the company has grown worldwide with total sales in recent fiscal years exceeding $64 billion.
             </h4>
             </div>
+            <div class = "OurViewsTitle">Our views</div>
             <div class="Ourviews block"><h4 class="OurviewsTextInBlock">Today, as the company evolves, it stays true to the qualities that helped attract and retain millions of loyal members around the globe:
                 Commitment to quality. K1J LTD warehouses carry about 4,000 SKUs (stock keeping units) compared to the 30,000 found at most supermarkets. By carefully choosing products based on quality, price, brand, and features, the company can offer the best value to members.
                 </h4></div>

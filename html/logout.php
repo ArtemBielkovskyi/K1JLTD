@@ -19,4 +19,4 @@ session_destroy();
 // Redirect to the login page or home page 
 header("Location: ../Index.php"); // Change to your desired redirect page 
 exit(); 
-?> 
+?>

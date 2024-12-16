@@ -82,6 +82,7 @@ i{
     font-size: 3.2em;
     color: white;
     font-weight: bold;
+    padding-bottom: 200px;
 }
 
 
@@ -93,6 +94,7 @@ i{
 }
 
 .InformationBox{
+    margin-top:100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,4 +154,16 @@ i{
     right:10px;
     width: 100px;
     top:-0px;
+}
+
+.aboutUsTitle{
+    position: absolute;
+    margin-bottom: 570px;
+    margin-left: -32%;
+}
+
+.OurViewsTitle{
+    position: absolute;
+    margin-bottom: 570px;
+    margin-left: 32%;
 }
