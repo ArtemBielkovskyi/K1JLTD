@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_regenerate_id();
             $_SESSION['email'] = $email;
             $_SESSION['username'] = $username;
-            header("Location: UnSignedAnalyticsPage.php");
+            header("Location: AccountInfo.php");
         } else {
             $message = "Invalid password";
         }

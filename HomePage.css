@@ -147,6 +147,7 @@ i{
     top:10px;
     font-size: 1.2em;
     color: #000;
+    cursor: pointer;
 }
 
 .logoff{

@@ -23,10 +23,6 @@ body{
     top: 10px;
 }
 
-i{
-    margin-right:10px;
-}
-
 button{
     margin-right: -5px;
     width: 10%;
@@ -64,26 +60,6 @@ button:active{
 .logo{
     cursor: pointer;
 }
-span{
-    position: absolute;
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #000;
-    left: 38%;
-    margin-top: 20%;
-}
-
-.Button{
-    display: inline-block;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-}
-
-.LoginButton{
-    margin-left: 40%;
-}
 
 .usericon{
     position: absolute;
@@ -101,15 +77,52 @@ span{
     top:-0px;
 }
 
-.usersDataBlock{
-    position: absolute;
-    width: 300px;
-    height: 200px;
-    left: 43%;
-    text-align: center;
-    top: 30%;
-    color: white;
+.AccountInforamtion{
+    width: 700px;
+    height:500px;
+    margin: auto;
+    margin-top:100px;
+}
+
+.MainInformation{
+    width: 70%;
+    height:100%;
+    float: left;
+}
+
+.UserDesignBlock{
+    width:30%;
+    float: left;
+    height:100%;
+}
+
+.changePasswordButton{
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.AccountInfo{
+    display: block;
+    margin-bottom: 70px;
     font-size: 1.7em;
-    padding-top: 7%;
-    background-color: grey;
+}
+
+.GeneralInfo{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.space{
+    margin-top: 50px;
+}
+
+.changePasswordButton:hover{
+    background-color: black;
+    color: white;
 }

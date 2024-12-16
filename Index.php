@@ -23,7 +23,7 @@
                     document.querySelector('.Log').style.display = 'none';
                     document.querySelector('.Reg').style.display = 'none';
                 </script>
-                <div class="usericon"><?php echo $_SESSION['username'];?></div>
+                <div class="usericon" onclick='window.open("html/AccountInfo.php","_self")'><?php echo $_SESSION['username'];?></div>
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>
         </div>

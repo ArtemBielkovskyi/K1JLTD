@@ -5,10 +5,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Analytics Page</title>
-        <link rel="stylesheet" type="text/css" href="UnSignedAnalyticsPage.css">
-        <link rel="stylesheet" href="../fonts/css/all.css">
-        <meta utf-8>
+        <title>Account Information</title>
+        <link rel="stylesheet" type="text/css" href="AccountInfo.css">
     </head>
     <body>
         <div class="header">
@@ -26,14 +24,23 @@
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>
         </div>
-        <?php if (!isset($_SESSION['email'])): ?>
-            <span>To access this page you need to be logged in.</span>
-                <a href="LoginPage.php"><button class="LoginButton Button">Login</button></a>
-                <a href="Registration.php"><button class="RegisterButton Button">Register</button></a>
-        <?php else: ?>
-            <div class="usersDataBlock">
-                User's <?php echo $_SESSION['username']; ?> analytics data
+
+        <div class="AccountInforamtion">
+            <div class="MainInformation">
+                <span class="AccountInfo">Account Information</span>
+                <span class="GeneralInfo">User name</span>
+                <?php echo $_SESSION['username']?>
+                <div class="space"></div>
+                <span class="GeneralInfo">Email</span>
+                <?php echo $_SESSION['email']?>
+                <div class="space"></div>
+                <span class="GeneralInfo">Account type</span>
+                ??
+                <!-- under construction -->
+                <div class="space"></div>
+                <button class="changePasswordButton" onclick="window.open('ChangePassword.php','_self')">Change password</button>
             </div>
-        <?php endif; ?>
+            <div class="UserDesignBlock"></div>
+        </div>
     </body>
 </html>
