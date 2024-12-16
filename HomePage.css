@@ -109,14 +109,13 @@ i{
     width: 30%;
     height: 100%;
     background-color: white;
-    border:1px dashed black;
     border-radius: 20px;
     overflow: hidden;
+    font-size: 0.6em;
 }
 
 .AboutUsText{
     margin-right:25px;
-    font-size: medium;
 }
 
 .Ourviews{
@@ -128,7 +127,6 @@ i{
     position: relative;
     top: 30px;
     left:5%;
-    font-size: 1.3em;
     font-weight: lighter;
 }
 
@@ -137,7 +135,6 @@ i{
     position: relative;
     top: 30px;
     left:5%;
-    font-size: 0.9em;
     font-weight: lighter;
 }
 
