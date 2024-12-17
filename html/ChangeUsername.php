@@ -1,12 +1,13 @@
 <?php
-    session_start();
+session_start();
+//Under construcion 
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Account Information</title>
-        <link rel="stylesheet" type="text/css" href="AccountInfo.css">
+        <title>Change Username</title>
+        <link rel="stylesheet" type="text/css" href="ChangeUsername.css">
     </head>
     <body>
         <div class="header">
@@ -25,23 +26,19 @@
             <?php endif; ?>
         </div>
 
-        <div class="AccountInforamtion">
-            <div class="MainInformation">
-                <span class="AccountInfo">Account Information</span>
-                <span class="GeneralInfo">User name</span>
-                <?php echo $_SESSION['username']?>
-                <div class="space"></div>
-                <span class="GeneralInfo">Email</span>
-                <?php echo $_SESSION['email']?>
-                <div class="space"></div>
-                <span class="GeneralInfo">Account type</span>
-                ??
-                <!-- under construction -->
-                <div class="space"></div>
-                <button class="changeUsernameButton" onclick="window.open('ChangeUsername.php','_self')">Change username</button>
-                <button class="changePasswordButton" onclick="window.open('ChangePassword.php','_self')">Change password</button>
+        <div class="container">
+            <div class="header">
+                <h2>Change Username</h2>
             </div>
-            <div class="UserDesignBlock"></div>
+            <form action="ChangeUsername.php" method="post">
+                <div class="input-Username">
+                    <label>New Username</label>
+                    <input type="Username" name="nemUsername" required>
+                </div>
+                <div class="input-group SubmutButton">
+                    <button type="submit" class="btn" name="change">Change</button>
+                </div>
+            </form>
         </div>
     </body>
 </html>

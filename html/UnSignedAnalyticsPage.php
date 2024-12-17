@@ -26,6 +26,7 @@
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>
         </div>
+        
         <?php if (!isset($_SESSION['email'])): ?>
             <span>To access this page you need to be logged in.</span>
                 <a href="LoginPage.php"><button class="LoginButton Button">Login</button></a>
