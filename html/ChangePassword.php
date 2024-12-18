@@ -1,6 +1,30 @@
 <?php
 session_start();
 //Under construcion 
+include("../database/db_connect.php");
+
+$email = $_SESSION['email'];
+$oldPassword = $_SESSION['password'];
+$message = '';
+$result = $conn->prepare("SELECT password FROM userdata WHERE email = '$email'");
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newPassword'])) {
+    if ($oldPassword != $_POST['newPassword']) {
+        $newPassword = $_POST['newPassword'];
+        $result->prepare("UPDATE userdata SET username = '$newPassword' WHERE email = '$email'");
+        $result->execute();
+        $result->store_result();
+        $_SESSION['password'] = $newPassword;
+        $message = "Password changed successfully!";
+    }
+    else{
+        $message = "New password is the same as the old one!";
+    }
+    
+}
+$result->close();
+$conn->close();
+
+/*need to sort encryption out before its gonna work*/
 ?>
 
 <!DOCTYPE html>
