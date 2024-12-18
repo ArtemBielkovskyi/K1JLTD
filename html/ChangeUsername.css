@@ -85,7 +85,7 @@ button:active{
 }
 
 .input-Username{
-    margin-left:41%;
+    margin-left:40%;
     margin-top:100px;
 }
 
@@ -102,6 +102,19 @@ input{
     border-radius: 10px;
     width:200px;
     height: 30px;
-    font-size: 1.3em;
+    font-size: 0.9em;
     border:1px solid black;
+    padding-left:10px;
+}
+
+.ErrorBlock{
+    margin-left:40%;
+    margin-top:10px;
+    color:red;
+}
+
+.SuccessBlock{
+    margin-left:42%;
+    margin-top:10px;
+    color:green;
 }
