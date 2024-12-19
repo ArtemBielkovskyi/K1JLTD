@@ -131,3 +131,29 @@ button:active{
     background-color: black;
     color: white;
 }
+
+.Submit{
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 15px;
+    color:white;
+}
+
+
+.code{
+    width:250px;
+    height: 30px;
+    padding-left: 7px;
+    font-size: 0.7em;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.User{
+    margin-bottom:10px;
+    display: block;
+}

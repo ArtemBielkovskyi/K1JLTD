@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
             $stmt->bind_param("ss", $newHashedPassword, $email);
             $stmt->execute();
             $_SESSION['password'] = $newHashedPassword;
-            echo "Password changed successfully!";
+            $message = "Password changed successfully!";
         } else {
             $message = "New password is the same as the old one!";
         }
@@ -74,6 +74,13 @@ $conn->close();
                 <div class="input-group SubmutButton">
                     <button type="submit" class="btn" name="change">Change</button>
                 </div>
+                <?php if($message == 'Password changed successfully!'): ?>
+                    <div class="SuccessBlock"><?php echo $message ?></div>
+                <?php elseif($message == 'New password is the same as the old one!'): ?>
+                    <div class="ErrorBlock"><?php echo $message ?></div>
+                <?php elseif($message == 'Old password is incorrect!'): ?>
+                    <div class="ErrorBlock"><?php echo $message ?></div>
+                <?php endif; ?>
             </form>
         </div>
     </body>
