@@ -4,24 +4,32 @@ session_start();
 include("../database/db_connect.php");
 
 $email = $_SESSION['email'];
-$oldPassword = $_SESSION['password'];
+$stmt = $conn->prepare("SELECT password, username FROM userdata WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($password, $username);
+$stmt->fetch();
+$oldPassword = $password;
 $message = '';
-$result = $conn->prepare("SELECT password FROM userdata WHERE email = '$email'");
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newPassword'])) {
-    if ($oldPassword != $_POST['newPassword']) {
-        $newPassword = $_POST['newPassword'];
-        $result->prepare("UPDATE userdata SET username = '$newPassword' WHERE email = '$email'");
-        $result->execute();
-        $result->store_result();
-        $_SESSION['password'] = $newPassword;
-        $message = "Password changed successfully!";
-    }
-    else{
-        $message = "New password is the same as the old one!";
-    }
-    
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
+    if (password_verify($_POST["oldpassword"], $password)) {
+        if ($_POST["oldpassword"] !== $_POST["newpassword"]) {
+            $newPassword = $_POST['newpassword'];
+            $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $stmt = $conn->prepare("UPDATE userdata SET password = ? WHERE email = ?");
+            $stmt->bind_param("ss", $newHashedPassword, $email);
+            $stmt->execute();
+            $_SESSION['password'] = $newHashedPassword;
+            echo "Password changed successfully!";
+        } else {
+            $message = "New password is the same as the old one!";
+        }
+    } else {
+        $message = "Old password is incorrect!";
+    }    
 }
-$result->close();
 $conn->close();
 
 /*need to sort encryption out before its gonna work*/
