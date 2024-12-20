@@ -3,6 +3,7 @@
     include ("../database/db_connect.php");
     $result = $conn->query("SHOW COLUMNS FROM userdata LIKE 'accountType'");
     $email = $_SESSION['email'];
+    $message = '';
     if ($result->num_rows == 0) {
         // Add the accountType column if it does not exist
         $conn->query("ALTER TABLE userdata ADD accountType VARCHAR(255)");
@@ -33,7 +34,7 @@
                     Header('Location: '.$_SERVER['PHP_SELF']);
                 break;
             default:
-                echo "Wrong code!";
+                $message = "Wrong code!";
                 break;
         }
     }
@@ -78,6 +79,9 @@
                     <button class="Submit" type="submit">Submit</button>
                 </form>
                 <?php else: echo $accountType;?>
+                <?php endif; ?>
+                <?php if($message == "Wrong code!"): ?>
+                    <span class="IncorrectCode">Wrong code!</span>
                 <?php endif; ?>
                 <!-- under construction -->
                 <div class="space"></div>
