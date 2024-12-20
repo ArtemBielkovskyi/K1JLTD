@@ -6,7 +6,7 @@ $ExistingEmails = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    // $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     $existingEmail = $conn->prepare("SELECT email FROM userdata WHERE email = ?");
     $existingEmail->bind_param("s", $email);
@@ -15,8 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($existingEmail->num_rows>0){
         $message = "Email already exist!";
+    } 
+    elseif(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['password'])){
+        $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
     } else{
-    
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         $stmt = $conn->prepare('INSERT INTO userdata(username, email, password) VALUES (?,?,?)');
         $stmt->bind_param('sss', $username, $email, $password);
 
@@ -63,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="Submit" type="submit">Submit</button>
         </form>
         <?php if($message === "Account created successfully"): ?>
-            <script>window.open('../Index.php','_self')</script>
+            <script>window.open('LoginPage.php','_self')</script>
         <?php endif; ?>
         <?php if($message === "Email already exist!"): ?>
         <div class="block"><?php echo $message ?></div>
@@ -71,5 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if($message === "Email doesn't have right format!"): ?>
         <div class="blockLong"><?php echo $message ?></div>
         <?php endif;?>
+        <?php if ($message === "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!"): ?>
+            <div class="blockVeryLong"><?php echo $message ?></div>
+        <?php endif; ?>  
     </body>
 </html>

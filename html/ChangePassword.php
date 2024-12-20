@@ -16,6 +16,9 @@ $message = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
     if (password_verify($_POST["oldpassword"], $password)) {
         if ($_POST["oldpassword"] !== $_POST["newpassword"]) {
+            if(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['newpassword'])){
+                $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
+            }else {
             $newPassword = $_POST['newpassword'];
             $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("UPDATE userdata SET password = ? WHERE email = ?");
@@ -23,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
             $stmt->execute();
             $_SESSION['password'] = $newHashedPassword;
             $message = "Password changed successfully!";
+            }
         } else {
             $message = "New password is the same as the old one!";
         }
@@ -32,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
 }
 $conn->close();
 
-/*need to sort encryption out before its gonna work*/
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +82,9 @@ $conn->close();
                 <?php elseif($message == 'New password is the same as the old one!'): ?>
                     <div class="ErrorBlock"><?php echo $message ?></div>
                 <?php elseif($message == 'Old password is incorrect!'): ?>
+                    <div class="ErrorBlock"><?php echo $message ?></div>
+                <?php endif; ?>
+                <?php if($message == "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!"): ?>
                     <div class="ErrorBlock"><?php echo $message ?></div>
                 <?php endif; ?>
             </form>
