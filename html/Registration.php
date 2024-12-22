@@ -11,17 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $existingEmail->bind_param("s", $email);
     $existingEmail->execute();
     $existingEmail->store_result();
-
+    //password validation 
     if($existingEmail->num_rows>0){
         $message = "Email already exist!";
     } 
     elseif(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['password'])){
         $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
     } else{
+        //password hashing and inserting into database
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         $stmt = $conn->prepare('INSERT INTO userdata(username, email, password) VALUES (?,?,?)');
         $stmt->bind_param('sss', $username, $email, $password);
-
+        //validation of email 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $message = "Email doesn't have right format!";
         } elseif ($stmt->execute()) {
