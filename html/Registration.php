@@ -17,6 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
     elseif(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['password'])){
         $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
+    } 
+    elseif($_POST['password']!==$_POST['password2']) {
+        $message = "Passwords don't match!";
     } else{
         //password hashing and inserting into database
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
@@ -63,12 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="email" required>
             <i class="fa-solid fa-lock"></i><span class="UserTxt">Password</span>
             <input type="password" name="password" required>
+            <i class="fa-solid fa-lock"></i><span class="UserTxt">Confirm Password</span>
+            <input type="password" name="password2" required>
             <button class="Submit" type="submit">Submit</button>
         </form>
         <?php if($message === "Account created successfully"): ?>
             <script>window.open('LoginPage.php','_self')</script>
         <?php endif; ?>
-        <?php if($message === "Email already exist!"): ?>
+        <?php if($message === "Email already exist!" || $message === "Passwords don't match!"): ?>
         <div class="block"><?php echo $message ?></div>
         <?php endif;?>
         <?php if($message === "Email doesn't have right format!"): ?>

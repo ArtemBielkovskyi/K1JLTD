@@ -71,13 +71,14 @@ i{
 
 .RegistrationBlock{
     width: 400px;
-    height:490px;
+    height:590px;
     background-color: #fafafa;
     margin: auto;
     margin-top:200px;
     border-radius: 30px;
     box-shadow: 2px 2px 4px #0000003f;
     padding-top: 10px;
+    margin-bottom: 200px;
 }
 
 .RegTxt{
@@ -171,6 +172,8 @@ input{
     z-index: -1;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 2px 2px 4px #00000038;
+    margin-top: -200px;
+    margin-bottom: 200px;
 }
 
 .blockLong{
@@ -185,6 +188,8 @@ input{
     z-index: -1;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 2px 2px 4px #00000038;
+    margin-top: -200px;
+    margin-bottom: 200px;
 }
 
 .blockVeryLong{
@@ -198,5 +203,7 @@ input{
     margin:auto;
     z-index: -1;
     border-radius: 0px 0px 20px 20px;
-    box-shadow: 2px 2px 4px #00000038; 
+    box-shadow: 2px 2px 4px #00000038;
+    margin-bottom: 200px;
+    margin-top:-200px; 
 }
