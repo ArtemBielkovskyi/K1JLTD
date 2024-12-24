@@ -41,5 +41,9 @@
                 Commitment to quality. K1J LTD warehouses carry about 4,000 SKUs (stock keeping units) compared to the 30,000 found at most supermarkets. By carefully choosing products based on quality, price, brand, and features, the company can offer the best value to members.
                 </h4></div>
         </div>
+        <div class="Footer">
+            <div class="FooterText">K1J LTD</div>
+            <div class="FooterText">All rights reserved</div>
+        </div>
     </body>
 </html>
