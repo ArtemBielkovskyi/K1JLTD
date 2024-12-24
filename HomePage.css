@@ -83,7 +83,7 @@ i{
     color: white;
     font-weight: bold;
     padding-bottom: 200px;
-    margin-bottom: 300px;
+    margin-bottom: 200px;
 }
 
 
@@ -208,7 +208,7 @@ i{
 }
 
 .MessageField{
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     font-size: 0.7em;
 }
 
@@ -228,6 +228,8 @@ i{
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
 }
 
 .SendMessage:hover{
@@ -238,7 +240,7 @@ i{
 .SecondPicture{
     width: 100%;
     height: 100%;
-    background-image: url('images/HomePageSecondPic.jpg');
+    background-image: url('images/HomeSecondPicture.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -253,5 +255,9 @@ i{
     color: white;
     font-weight: bold;
     padding-bottom: 200px;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
+}
+
+.termsAndConditions{
+    font-size: 0.7em;
 }

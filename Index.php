@@ -48,6 +48,11 @@
                 <p class="FirstNameField"><label>First Name:</label> <input name="myEmail" type="text" class="InputField"/></p>
                 <p class="EmailAddressField"><label>Email Address:</label> <input style="cursor: pointer;" name="myEmail" type="text" class="InputField"/></p>
                 <p class="MessageField"><label>Message:</label>  <textarea name="message" class="InputField"></textarea> </p>
+                <!-- Checkbox for accepting terms/privacy policy -->
+                <p>
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="termsAndConditions">I accept the <a href="html/TermsOfService.php">Terms of Service</a> and <a href="html/TermsOfService.php">Privacy Policy</a>.</label>
+                </p>
                 <p><input type="submit" value="Send" class="SendMessage"/></p>
             </formclass>
         </div>
