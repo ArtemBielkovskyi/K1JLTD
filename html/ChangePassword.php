@@ -89,5 +89,9 @@ $conn->close();
                 <?php endif; ?>
             </form>
         </div>
+        <div class="Footer">
+            <div class="FooterText">K1J LTD</div>
+            <div class="FooterText">All rights reserved</div>
+        </div>
     </body>
 </html>

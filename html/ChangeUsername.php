@@ -69,5 +69,9 @@ $conn->close();
                 <div class="ErrorBlock"><?php echo $message ?></div>
             <?php endif; ?>
         </div>
+        <div class="Footer">
+            <div class="FooterText">K1J LTD</div>
+            <div class="FooterText">All rights reserved</div>
+        </div>
     </body>
 </html>

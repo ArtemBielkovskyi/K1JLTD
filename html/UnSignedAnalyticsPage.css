@@ -113,3 +113,19 @@ span{
     padding-top: 7%;
     background-color: grey;
 }
+
+.Footer{
+    background-color: #282828;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.FooterText{
+    color: white;
+    background-color: #282828;
+    font-size: 0.7em;
+}

@@ -161,3 +161,20 @@ button:active{
 .IncorrectCode{
     color:red;
 }
+
+.Footer{
+    background-color: #282828;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-top: 200px;
+}
+
+.FooterText{
+    color: white;
+    background-color: #282828;
+    font-size: 0.7em;
+}

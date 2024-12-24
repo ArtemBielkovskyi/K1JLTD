@@ -26,7 +26,7 @@
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>
         </div>
-        
+
         <?php if (!isset($_SESSION['email'])): ?>
             <span>To access this page you need to be logged in.</span>
                 <a href="LoginPage.php"><button class="LoginButton Button">Login</button></a>
@@ -36,5 +36,9 @@
                 User's <?php echo $_SESSION['username']; ?> analytics data
             </div>
         <?php endif; ?>
+        <div class="Footer">
+            <div class="FooterText">K1J LTD</div>
+            <div class="FooterText">All rights reserved</div>
+        </div>
     </body>
 </html>

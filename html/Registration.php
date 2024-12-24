@@ -82,5 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if ($message === "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!"): ?>
             <div class="blockVeryLong"><?php echo $message ?></div>
         <?php endif; ?>  
+        <div class="Footer">
+            <div class="FooterText">K1J LTD</div>
+            <div class="FooterText">All rights reserved</div>
+        </div>
     </body>
 </html>
