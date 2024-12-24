@@ -41,6 +41,16 @@
                 Commitment to quality. K1J LTD warehouses carry about 4,000 SKUs (stock keeping units) compared to the 30,000 found at most supermarkets. By carefully choosing products based on quality, price, brand, and features, the company can offer the best value to members.
                 </h4></div>
         </div>
+        <div class="SecondPicture"></div>
+        <div class = "contactUs">
+            <form class="ContactUsForm">
+                <h2 class="ContactUsTitle">Contact us</h2>
+                <p class="FirstNameField"><label>First Name:</label> <input name="myEmail" type="text" class="InputField"/></p>
+                <p class="EmailAddressField"><label>Email Address:</label> <input style="cursor: pointer;" name="myEmail" type="text" class="InputField"/></p>
+                <p class="MessageField"><label>Message:</label>  <textarea name="message" class="InputField"></textarea> </p>
+                <p><input type="submit" value="Send" class="SendMessage"/></p>
+            </formclass>
+        </div>
         <div class="Footer">
             <div class="FooterText">K1J LTD</div>
             <div class="FooterText">All rights reserved</div>

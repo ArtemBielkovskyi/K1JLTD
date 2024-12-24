@@ -83,6 +83,7 @@ i{
     color: white;
     font-weight: bold;
     padding-bottom: 200px;
+    margin-bottom: 300px;
 }
 
 
@@ -177,4 +178,80 @@ i{
     color: white;
     background-color: #282828;
     font-size: 0.7em;
+}
+
+.contactUs {
+    /* margin-top: 100px; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 50px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: lighter;
+    height: 400px;
+}
+
+.ContactUsTitle{
+    margin-bottom:50px;
+    font-size: 1em;
+}
+
+.FirstNameField{
+    margin-bottom: 20px;
+    font-size: 0.7em;
+}
+
+.EmailAddressField{
+    margin-bottom: 20px;
+    font-size: 0.7em;
+}
+
+.MessageField{
+    margin-bottom: 50px;
+    font-size: 0.7em;
+}
+
+.InputField{
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding-left: 10px;
+}
+
+.SendMessage{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.SendMessage:hover{
+    background-color: #000000;
+    color: white;
+}
+
+.SecondPicture{
+    width: 100%;
+    height: 100%;
+    background-image: url('images/HomePageSecondPic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0.9;
+    font-size: 3.2em;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 200px;
+    margin-bottom: 300px;
 }
