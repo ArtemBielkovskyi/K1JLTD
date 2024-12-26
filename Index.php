@@ -1,5 +1,37 @@
 <?php
-    session_start();
+session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $toEmail = 'artembielkovskyi@gmail.com';
+    $email = $_POST['myEmail'];
+    $emailSubject = 'Contact Form Submission';
+    $message = $_POST['message'];
+    $mail = new PHPMailer(true);
+    try{
+        $mail-> isSMTP();
+        $mail->Host = 'live.smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Username= 'smtp@mailtrap.io';
+        $mail->Password= '0dd0faedca96fb27b07d24bf19434c18';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = '587';
+
+        $mail->setFrom($email);
+        $mail->addAddress($toEmail);
+        $mail->Subject = $emailSubject;
+        $mail->isHTML(true);
+        $mail->Body = "<h3>From: $email</h3><h3>Message: $message</h3>";
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
