@@ -1,35 +1,40 @@
 <?php
 session_start();
+
+// Start with PHPMailer class
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+require_once './vendor/autoload.php';
+// create a new object
+$mail = new PHPMailer();
+// configure an SMTP
+$mail->isSMTP();
+$mail->Host = 'sandbox.smtp.mailtrap.io';
+$mail->SMTPAuth = true;
+$mail->Username = '26c465e08b919c';
+$mail->Password = '435f6973aea1c0';
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail->Port = 2525;
 
-require 'vendor/autoload.php';
+$mail->setFrom('confirmation@registered-domain', 'Your Hotel');
+$mail->addAddress('artembielkovskyi@gmail.com', 'Me');
+$mail->Subject = 'Thanks for choosing Our Hotel!';
+// Set HTML 
+$mail->isHTML(TRUE);
+$mail->Body = '<html>Hi there, we are happy to <br>confirm your booking.</br> Please check the document in the attachment.</html>';
+$mail->AltBody = 'Hi there, we are happy to confirm your booking. Please check the document in the attachment.';
+// add attachment 
+// just add the '/path/to/file.pdf'
+$attachmentPath = './confirmations/yourbooking.pdf';
+if (file_exists($attachmentPath)) {
+    $mail->addAttachment($attachmentPath, 'yourbooking.pdf');
+}
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $toEmail = 'artembielkovskyi@gmail.com';
-    $email = $_POST['myEmail'];
-    $emailSubject = 'Contact Form Submission';
-    $message = $_POST['message'];
-    $mail = new PHPMailer(true);
-    try{
-        $mail-> isSMTP();
-        $mail->Host = 'live.smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Username= 'smtp@mailtrap.io';
-        $mail->Password= '0dd0faedca96fb27b07d24bf19434c18';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = '587';
-
-        $mail->setFrom($email);
-        $mail->addAddress($toEmail);
-        $mail->Subject = $emailSubject;
-        $mail->isHTML(true);
-        $mail->Body = "<h3>From: $email</h3><h3>Message: $message</h3>";
-        $mail->send();
-        echo 'Message has been sent';
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
+// send the message
+if(!$mail->send()){
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
 }
 
 ?>
@@ -77,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class = "contactUs">
             <form class="ContactUsForm">
                 <h2 class="ContactUsTitle">Contact us</h2>
-                <p class="FirstNameField"><label>First Name:</label> <input name="myEmail" type="text" class="InputField"/></p>
+                <p class="FirstNameField"><label>First Name:</label> <input name="myName" type="text" class="InputField"/></p>
                 <p class="EmailAddressField"><label>Email Address:</label> <input style="cursor: pointer;" name="myEmail" type="text" class="InputField"/></p>
                 <p class="MessageField"><label>Message:</label>  <textarea name="message" class="InputField"></textarea> </p>
                 <!-- Checkbox for accepting terms/privacy policy -->
@@ -85,8 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms" class="termsAndConditions">I accept the <a href="html/TermsOfService.php">Terms of Service</a> and <a href="html/TermsOfService.php">Privacy Policy</a>.</label>
                 </p>
-                <p><input type="submit" value="Send" class="SendMessage"/></p>
-            </formclass>
+                <p><input type="submit" value="Post" class="SendMessage"/></p>
+            </form>
         </div>
         <div class="Footer">
             <div class="FooterText">K1J LTD</div>
