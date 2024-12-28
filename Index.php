@@ -7,34 +7,40 @@ require_once './vendor/autoload.php';
 // create a new object
 $mail = new PHPMailer();
 // configure an SMTP
-$mail->isSMTP();
-$mail->Host = 'sandbox.smtp.mailtrap.io';
-$mail->SMTPAuth = true;
-$mail->Username = '26c465e08b919c';
-$mail->Password = '435f6973aea1c0';
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 2525;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $message = $_POST['message'];
+    $emailOfUser = $_POST['myEmail'];
+    echo $message;
+    echo $emailOfUser;
+    $mail->isSMTP();
+    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->SMTPAuth = true;
+    $mail->Username = '26c465e08b919c';
+    $mail->Password = '435f6973aea1c0';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 2525;
 
-$mail->setFrom('confirmation@registered-domain', 'Your Hotel');
-$mail->addAddress('artembielkovskyi@gmail.com', 'Me');
-$mail->Subject = 'Thanks for choosing Our Hotel!';
-// Set HTML 
-$mail->isHTML(TRUE);
-$mail->Body = '<html>Hi there, we are happy to <br>confirm your booking.</br> Please check the document in the attachment.</html>';
-$mail->AltBody = 'Hi there, we are happy to confirm your booking. Please check the document in the attachment.';
-// add attachment 
-// just add the '/path/to/file.pdf'
-$attachmentPath = './confirmations/yourbooking.pdf';
-if (file_exists($attachmentPath)) {
-    $mail->addAttachment($attachmentPath, 'yourbooking.pdf');
-}
+    $mail->setFrom($emailOfUser, 'Your Hotel');
+    $mail->addAddress('artembielkovskyi@gmail.com', 'Me');
+    $mail->Subject = 'User enquires';
+    // Set HTML 
+    $mail->isHTML(TRUE);
+    $mail->Body = $message;
+    $mail->AltBody = 'Hi there, we are happy to confirm your booking. Please check the document in the attachment.';
+    // add attachment 
+    // just add the '/path/to/file.pdf'
+    $attachmentPath = './confirmations/yourbooking.pdf';
+    if (file_exists($attachmentPath)) {
+        $mail->addAttachment($attachmentPath, 'yourbooking.pdf');
+    }
 
-// send the message
-if(!$mail->send()){
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
+    // send the message
+    if(!$mail->send()){
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
 }
 
 ?>
@@ -80,7 +86,7 @@ if(!$mail->send()){
         </div>
         <div class="SecondPicture"></div>
         <div class = "contactUs">
-            <form class="ContactUsForm">
+            <form method="post" class="ContactUsForm">
                 <h2 class="ContactUsTitle">Contact us</h2>
                 <p class="FirstNameField"><label>First Name:</label> <input name="myName" type="text" class="InputField"/></p>
                 <p class="EmailAddressField"><label>Email Address:</label> <input style="cursor: pointer;" name="myEmail" type="text" class="InputField"/></p>
