@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set HTML 
     $mail->isHTML(TRUE);
     $mail->Body = $message;
-    $mail->AltBody = 'Hi there, we are happy to confirm your booking. Please check the document in the attachment.';
+    $mail->AltBody = 'Message from K1J LTD.';
     // add attachment 
     // just add the '/path/to/file.pdf'
     $attachmentPath = './confirmations/yourbooking.pdf';
