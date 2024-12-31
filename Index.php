@@ -3,15 +3,14 @@ session_start();
 
 // Start with PHPMailer class
 use PHPMailer\PHPMailer\PHPMailer;
-require_once './vendor/autoload.php';
+$messageToUser = "";
 // create a new object
-$mail = new PHPMailer();
 // configure an SMTP
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_POST['myEmail'])) {
+    require_once './vendor/autoload.php';   
+    $mail = new PHPMailer();
     $message = $_POST['message'];
     $emailOfUser = $_POST['myEmail'];
-    echo $message;
-    echo $emailOfUser;
     $mail->isSMTP();
     $mail->Host = 'sandbox.smtp.mailtrap.io';
     $mail->SMTPAuth = true;
@@ -36,10 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // send the message
     if(!$mail->send()){
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        $messageToUser = 'Message could not be sent.';
     } else {
-        echo 'Message has been sent';
+        $messageToUser = 'Message has been sent';
     }
 }
 
@@ -89,16 +87,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="post" class="ContactUsForm">
                 <h2 class="ContactUsTitle">Contact us</h2>
                 <p class="FirstNameField"><label>First Name:</label> <input name="myName" type="text" class="InputField"/></p>
-                <p class="EmailAddressField"><label>Email Address:</label> <input style="cursor: pointer;" name="myEmail" type="text" class="InputField"/></p>
+                <p class="EmailAddressField"><label>Email Address:</label> <input style="cursor: pointer;" name="myEmail" type="email" class="InputField" required/></p>
                 <p class="MessageField"><label>Message:</label>  <textarea name="message" class="InputField"></textarea> </p>
                 <!-- Checkbox for accepting terms/privacy policy -->
                 <p>
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms" class="termsAndConditions">I accept the <a href="html/TermsOfService.php">Terms of Service</a> and <a href="html/TermsOfService.php">Privacy Policy</a>.</label>
                 </p>
-                <p><input type="submit" value="Post" class="SendMessage"/></p>
+                <p><input type="submit" class="SendMessage Submit"/></p>
             </form>
         </div>
+        <?php if($messageToUser == 'Message has been sent'):?>
+            <div class="SuccessMessage"><?php echo $messageToUser?></div>
+        <?php elseif($messageToUser == 'Message could not be sent'):?>
+            <div class="ErrorMessage"><?php echo $messageToUser?></div>
+        <?php endif; ?>
         <div class="Footer">
             <div class="FooterText">K1J LTD</div>
             <div class="FooterText">All rights reserved</div>

@@ -261,3 +261,19 @@ i{
 .termsAndConditions{
     font-size: 0.7em;
 }
+
+.SuccessMessage{
+    color: green;
+    font-size: 1.1em;
+    display: block;
+    align-items: center;
+    justify-self: center;
+}
+
+.ErrorMessage{
+    color: red;
+    font-size: 1.1em;
+    display: block;
+    align-items: center;
+    justify-self: center;
+}
