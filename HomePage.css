@@ -268,6 +268,8 @@ i{
     display: block;
     align-items: center;
     justify-self: center;
+    position: relative;
+    bottom:100px;
 }
 
 .ErrorMessage{
@@ -276,4 +278,6 @@ i{
     display: block;
     align-items: center;
     justify-self: center;
+    position: relative;
+    bottom:100px;
 }
