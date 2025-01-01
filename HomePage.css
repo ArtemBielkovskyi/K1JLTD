@@ -124,19 +124,25 @@ i{
 }
 
 .AboutUsTextInBlock{
-    width: 90%;
+    width: 95%;
     position: relative;
-    top: 30px;
+    top: 10px;
     left:5%;
+    text-align: justify;
     font-weight: lighter;
+    text-align-last:center;
+    line-height: 1.5;
 }
 
 .OurviewsTextInBlock{
-    width: 90%;
+    width: 95%;
     position: relative;
-    top: 30px;
+    top: 10px;
     left:5%;
+    text-align: justify;
     font-weight: lighter;
+    text-align-last:center;
+    line-height: 1.5;
 }
 
 .usericon{
