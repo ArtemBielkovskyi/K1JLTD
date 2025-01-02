@@ -1,4 +1,4 @@
-<?php
+<d?php
     session_start();
 ?>
 
@@ -28,9 +28,9 @@
         </div>
 
         <?php if (!isset($_SESSION['email'])): ?>
-            <span>To access this page you need to be logged in.</span>
-                <a href="LoginPage.php"><button class="LoginButton Button">Login</button></a>
-                <a href="Registration.php"><button class="RegisterButton Button">Register</button></a>
+            <center><span class="YouNeedToSignText">To access this page you need to be logged in.</span></center>
+            <a href="LoginPage.php"><button class="LoginButton Button">Login</button></a>
+            <a href="Registration.php"><button class="RegisterButton Button">Register</button></a>
         <?php else: ?>
             <div class="usersDataBlock">
                 User's <?php echo $_SESSION['username']; ?> analytics data

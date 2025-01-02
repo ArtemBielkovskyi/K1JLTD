@@ -64,25 +64,30 @@ button:active{
 .logo{
     cursor: pointer;
 }
-span{
+/* span{
     position: absolute;
     font-size: 1.5rem;
     font-weight: 500;
     color: #000;
-    left: 38%;
     margin-top: 20%;
+    display: block;
+} */
+
+.YouNeedToSignText{
+    top:200px;
+    position: relative;
+}
+
+.LoginButton{
+    margin-left:39.5%;
 }
 
 .Button{
     display: inline-block;
     position: relative;
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-}
-
-.LoginButton{
-    margin-left: 40%;
+    /* align-items: center;
+    justify-content: center; */
+    margin-top: 20%;
 }
 
 .usericon{
