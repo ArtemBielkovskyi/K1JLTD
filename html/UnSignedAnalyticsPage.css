@@ -7,6 +7,9 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header{
@@ -117,6 +120,7 @@ button:active{
     bottom: 0;
     right: 0;
     left: 0;
+    margin: auto;
 }
 
 .FooterText{

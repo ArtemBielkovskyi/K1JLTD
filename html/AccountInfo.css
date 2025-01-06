@@ -7,6 +7,9 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header{
@@ -163,9 +166,8 @@ button:active{
     color:red;
 }
 .Footer{
-    position:relative;
-    left: 0;
-    margin-bottom:0%;
+
+    margin-top:auto;
     width: 100%;
     height: 40px;
     background-color: hsl(0, 0%, 16%);
@@ -181,6 +183,18 @@ button:active{
 }
 
 .DataAnalyticsButton{
-    width:13%;
-    display: block;
+    width: 13%;
+    height: 50px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-top: 0px;
+    border-radius: 10px;
+    float:left;
+    margin-right: 15px;
+}
+
+.DataAnalyticsButton:hover{
+    background-color: black;
+    color: white;
 }

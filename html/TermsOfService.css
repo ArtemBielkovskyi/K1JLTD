@@ -7,6 +7,9 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header{
@@ -87,7 +90,7 @@ i{
     text-align: center;
     padding: 20px;
     position: relative;
-    margin-top: 100px;
+    margin-top: auto;
 }
 
 .FooterText{
@@ -108,4 +111,5 @@ h2{
 
 .TermsOfService{
     margin-left:10px;
+    margin-bottom: 100px;
 }
