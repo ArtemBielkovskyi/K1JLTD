@@ -90,7 +90,7 @@
             </div>
             <div class="UserDesignBlock"></div>
             <?php if($accountType=='Staff'):?>
-            <button class="DataAnalyticsButton">Data Analytics</button>
+            <button class="DataAnalyticsButton" onclick="window.open('UnSignedAnalyticsPage.php');">Staff Analytics</button>
             <?php endif; ?>
         </div>
         <div class="Footer">

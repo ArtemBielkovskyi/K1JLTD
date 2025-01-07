@@ -101,11 +101,10 @@ button:active{
     height: 200px;
     left: 43%;
     text-align: center;
-    top: 30%;
-    color: white;
+    top: 20%;
+    color: black;
     font-size: 1.7em;
     padding-top: 7%;
-    background-color: grey;
 }
 
 .Footer{

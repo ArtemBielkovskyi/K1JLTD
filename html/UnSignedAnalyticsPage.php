@@ -44,7 +44,37 @@
                     $query->fetch();
                     $query->close();
                     echo "Last login was on: <br/>", $last_login;
-                ?>
+
+                    $query = $conn->prepare("SELECT accountType FROM userdata WHERE email = ?");
+                    $query->bind_param("s", $_SESSION['email']);
+                    $query->execute();
+                    $query->bind_result($accountType);
+                    $query->fetch();
+                    $query->close();
+                    if($accountType=='Staff'){
+                        // localhost is localhost 
+                        // servername is root 
+                        // password is empty 
+                        // database name is k1jltd 
+                        $con = mysqli_connect("localhost","root","","k1jltd"); 
+                            
+                            // SQL query to display row count 
+                            // in userdata table 
+                            $sql = "SELECT * from userdata"; 
+                            
+                            if ($result = mysqli_query($con, $sql)) { 
+                            
+                            // Return the number of rows in result set 
+                            $rowcount = mysqli_num_rows( $result ); 
+                                
+                            // Display result 
+                            printf("<br/><br/>Total amount of users : %d\n", $rowcount); 
+                        } 
+                            
+                        // Close the connection 
+                        mysqli_close($con); 
+                    }
+                ?> 
             </div>
         <?php endif; ?>
         <div class="Footer">
