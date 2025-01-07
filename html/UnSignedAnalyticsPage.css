@@ -7,8 +7,6 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
 }
 
@@ -54,7 +52,6 @@ button{
     right: 115px;
     width: 5%;
 } 
-
 button:hover{
     border-bottom:1px solid black;
 }
@@ -82,7 +79,6 @@ button:active{
     position: relative;
     margin-top: 20%;
 }
-
 .usericon{
     position: absolute;
     right:130px;

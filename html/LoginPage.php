@@ -17,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_regenerate_id();
             $_SESSION['email'] = $email;
             $_SESSION['username'] = $username;
+            $query = $conn->prepare("UPDATE userdata SET last_login = NOW() WHERE email = ?");
+            $query->bind_param("s", $email);
+            $query->execute();
+            $query->close();
             header("Location: AccountInfo.php");
         } else {
             $message = "Invalid password";

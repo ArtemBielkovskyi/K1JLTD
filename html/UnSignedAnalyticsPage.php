@@ -1,5 +1,6 @@
-<d?php
+<?php
     session_start();
+    include("../database/db_connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +30,21 @@
 
         <?php if (!isset($_SESSION['email'])): ?>
             <center><span class="YouNeedToSignText">To access this page you need to be logged in.</span></center>
-            <a href="LoginPage.php"><button class="LoginButton Button">Login</button></a>
-            <a href="Registration.php"><button class="RegisterButton Button">Register</button></a>
+            <a href="LoginPage.php" class="loginLink"><button class="LoginButton Button">Login</button></a>
+            <a href="Registration.php" class="RegLink"><button class="RegisterButton Button">Register</button></a>
         <?php else: ?>
             <div class="usersDataBlock">
-                User's <?php echo $_SESSION['username']; ?> analytics data
+                <?php
+
+                    // Fetch last login time
+                    $query = $conn->prepare("SELECT last_login FROM userdata WHERE email = ?");
+                    $query->bind_param("s", $_SESSION['email']);
+                    $query->execute();
+                    $query->bind_result($last_login);
+                    $query->fetch();
+                    $query->close();
+                    echo "Last login was on: <br/>", $last_login;
+                ?>
             </div>
         <?php endif; ?>
         <div class="Footer">
