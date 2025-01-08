@@ -47,7 +47,7 @@
     </head>
     <body>
         <div class="header">
-            <div class="logo">K1J LTD</div>
+            <div class="logo", onclick="window.open('../Index.php','_Self')">K1J LTD</div>
             <a href="../Index.php"><button><i class="fas fa-house"></i>Home</button></a>
             <a href="UnSignedAnalyticsPage.php"><button><i class="fa-solid fa-chart-line"></i>Analytics</button></a>
             <a href="LoginPage.php"><button class="Log"><i class="fa-solid fa-right-to-bracket"></i>Login</button></a>
@@ -90,7 +90,7 @@
             </div>
             <div class="UserDesignBlock"></div>
             <?php if($accountType=='Staff'):?>
-            <button class="DataAnalyticsButton" onclick="window.open('UnSignedAnalyticsPage.php');">Staff Analytics</button>
+            <button class="DataAnalyticsButton" onclick="window.open('UnSignedAnalyticsPage.php','_Self');">Staff Analytics</button>
             <?php endif; ?>
         </div>
         <div class="Footer">
