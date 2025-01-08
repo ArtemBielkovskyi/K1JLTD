@@ -172,7 +172,7 @@ input{
     text-align: center;
     padding-top: 10px;
     margin:auto;
-    z-index: -1;
+    z-index: 0;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 2px 2px 4px #00000038;
     margin-top: -200px;
@@ -188,7 +188,7 @@ input{
     text-align: center;
     padding-top: 10px;
     margin:auto;
-    z-index: -1;
+    z-index: 0;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 2px 2px 4px #00000038;
     margin-top: -200px;
@@ -204,7 +204,7 @@ input{
     text-align: center;
     padding-top: 10px;
     margin:auto;
-    z-index: -1;
+    z-index: 0;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 2px 2px 4px #00000038;
     margin-bottom: 200px;

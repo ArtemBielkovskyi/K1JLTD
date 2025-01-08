@@ -98,9 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_
             </form>
         </div>
         <?php if($messageToUser == 'Message has been sent'):?>
-            <div class="SuccessMessage"><?php echo $messageToUser?></div>
+            <center><div class="SuccessMessage"><?php echo $messageToUser?></div></center>
         <?php elseif($messageToUser == 'Message could not be sent'):?>
-            <div class="ErrorMessage"><?php echo $messageToUser?></div>
+            <center><div class="ErrorMessage"><?php echo $messageToUser?></div></center>
         <?php endif; ?>
         <div class="Footer">
             <div class="FooterText">K1J LTD</div>
