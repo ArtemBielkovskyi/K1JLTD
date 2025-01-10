@@ -1,7 +1,6 @@
 <?php
-session_start();
-//Under construcion 
 include("../database/db_connect.php");
+include("Header.php");
 
 $email = $_SESSION['email'];
 $stmt = $conn->prepare("SELECT password, username FROM userdata WHERE email = ?");
@@ -45,7 +44,7 @@ $conn->close();
         <link rel="stylesheet" type="text/css" href="ChangePassword.css">
     </head>
     <body>
-        <div class="header">
+        <!-- <div class="header">
             <div class="logo" onclick="window.open('../Index.php','_Self')">K1J LTD</div>
             <a href="../Index.php"><button><i class="fas fa-house"></i>Home</button></a>
             <a href="UnSignedAnalyticsPage.php"><button><i class="fa-solid fa-chart-line"></i>Analytics</button></a>
@@ -59,7 +58,7 @@ $conn->close();
                 <div class="usericon" onclick='window.open("AccountInfo.php","_self")'><?php echo $_SESSION['username'];?></div>
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>
-        </div>
+        </div> -->
 
         <div class="container">
             <div class="header">

@@ -1,6 +1,6 @@
 <?php
-    session_start();
     include ("../database/db_connect.php");
+    include ("Header.php");
     $result = $conn->query("SHOW COLUMNS FROM userdata LIKE 'accountType'");
     $email = $_SESSION['email'];
     $message = '';
@@ -46,7 +46,7 @@
         <link rel="stylesheet" type="text/css" href="AccountInfo.css">
     </head>
     <body>
-        <div class="header">
+        <!-- <div class="header">
             <div class="logo", onclick="window.open('../Index.php','_Self')">K1J LTD</div>
             <a href="../Index.php"><button><i class="fas fa-house"></i>Home</button></a>
             <a href="UnSignedAnalyticsPage.php"><button><i class="fa-solid fa-chart-line"></i>Analytics</button></a>
@@ -60,7 +60,7 @@
                 <div class="usericon" onclick='window.open("AccountInfo.php","_self")'><?php echo $_SESSION['username'];?></div>
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>
-        </div>
+        </div> -->
 
         <div class="AccountInforamtion">
             <div class="MainInformation">
