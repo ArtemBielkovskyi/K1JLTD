@@ -1,7 +1,7 @@
 <?php
 include("../database/db_connect.php");
 include("Header.php");
-
+//recieving data about users password from the database using email adress  
 $email = $_SESSION['email'];
 $stmt = $conn->prepare("SELECT password, username FROM userdata WHERE email = ?");
 $stmt->bind_param("s", $email);
@@ -12,12 +12,16 @@ $stmt->fetch();
 $oldPassword = $password;
 $message = '';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
+    //in case if account been found we set up new password
     if (password_verify($_POST["oldpassword"], $password)) {
+        //this is going to work only if existing password is not the same as old one
         if ($_POST["oldpassword"] !== $_POST["newpassword"]) {
             if(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['newpassword'])){
                 $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
             }else {
+            // this is going to work only if password longer that 8 digits, include capital, lower case and special symbols 
             $newPassword = $_POST['newpassword'];
             $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("UPDATE userdata SET password = ? WHERE email = ?");
@@ -44,21 +48,6 @@ $conn->close();
         <link rel="stylesheet" type="text/css" href="ChangePassword.css">
     </head>
     <body>
-        <!-- <div class="header">
-            <div class="logo" onclick="window.open('../Index.php','_Self')">K1J LTD</div>
-            <a href="../Index.php"><button><i class="fas fa-house"></i>Home</button></a>
-            <a href="UnSignedAnalyticsPage.php"><button><i class="fa-solid fa-chart-line"></i>Analytics</button></a>
-            <a href="LoginPage.php"><button class="Log"><i class="fa-solid fa-right-to-bracket"></i>Login</button></a>
-            <a href="Registration.php"><button class="Reg"><i class="fa-solid fa-address-card"></i>Register</button></a>
-            <?php if (isset($_SESSION['email'])): ?>
-				<script>
-                    document.querySelector('.Log').style.display = 'none';
-                    document.querySelector('.Reg').style.display = 'none';
-                </script>
-                <div class="usericon" onclick='window.open("AccountInfo.php","_self")'><?php echo $_SESSION['username'];?></div>
-                <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
-            <?php endif; ?>
-        </div> -->
 
         <div class="container">
             <div class="header">

@@ -12,7 +12,8 @@
         $stmt->execute();
         $stmt->close();
     }
-
+    //changing accout type of the user 
+    //getting variable from dataset 
     $stmt = $conn->prepare("SELECT accountType FROM userdata WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -23,9 +24,10 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $code = $_POST["code"];
 
-
+        //checking code which have been inserted by user
         switch ($code) {
             case 'K1JLTD':
+                    //Changing account type variable in the database for specific user 
                     $stmt = $conn->prepare("UPDATE userdata SET accountType = 'Staff' WHERE email = ?");
                     $stmt->bind_param("s", $email);
                     $stmt->execute();
