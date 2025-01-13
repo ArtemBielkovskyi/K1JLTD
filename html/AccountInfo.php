@@ -75,9 +75,6 @@
                 <button class="changePasswordButton" onclick="window.open('ChangePassword.php','_self')">Change password</button>
             </div>
             <div class="UserDesignBlock"></div>
-            <?php if($accountType=='Staff'):?>
-            <button class="DataAnalyticsButton" onclick="window.open('UnSignedAnalyticsPage.php','_Self');">Staff Analytics</button>
-            <?php endif; ?>
         </div>
         <div class="Footer">
             <div class="FooterText">K1J LTD</div>

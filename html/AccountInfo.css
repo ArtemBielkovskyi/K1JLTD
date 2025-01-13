@@ -99,20 +99,3 @@
     background-color: #282828;
     font-size: 0.7em;
 }
-
-.DataAnalyticsButton{
-    width: 13%;
-    height: 50px;
-    background-color: white;
-    border: 1px solid black;
-    cursor: pointer;
-    margin-top: 0px;
-    border-radius: 10px;
-    float:left;
-    margin-right: 15px;
-}
-
-.DataAnalyticsButton:hover{
-    background-color: black;
-    color: white;
-}
