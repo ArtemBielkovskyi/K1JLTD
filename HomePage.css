@@ -148,7 +148,11 @@ i{
     text-align-last:center;
     line-height: 1.5;
 }
-
+.Cart{
+    position: absolute;
+    right:225px;
+    width: 100px;
+}
 .usericon{
     position: absolute;
     right:130px;

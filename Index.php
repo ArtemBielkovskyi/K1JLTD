@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_
             <div class="logo">K1J LTD</div>
             <a href="Index.php"><button><i class="fas fa-house"></i>Home</button></a>
             <a href="html/UnSignedAnalyticsPage.php"><button><i class="fa-solid fa-chart-line"></i>Analytics</button></a>
+            <a href="html/Products.php"><button><i class="fa-solid fa-bag-shopping"></i>Products</button></a>
             <a href="html/LoginPage.php"><button class="Log"><i class="fa-solid fa-right-to-bracket"></i>Login</button></a>
             <a href="html/Registration.php"><button class="Reg"><i class="fa-solid fa-address-card"></i>Register</button></a>
             <?php if (isset($_SESSION['email'])): ?>
@@ -64,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_
                     document.querySelector('.Log').style.display = 'none';
                     document.querySelector('.Reg').style.display = 'none';
                 </script>
+                <a href="html/Cart.php"><button class="Cart"><i class="fa-solid fa-cart-shopping"></i>Cart</button></a>
                 <div class="usericon" onclick='window.open("html/AccountInfo.php","_self")'><?php echo $_SESSION['username'];?></div>
                 <form action="logout.php" method="POST"><button class="logoff">Log off</button></form>
             <?php endif; ?>

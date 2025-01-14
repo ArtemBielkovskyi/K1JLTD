@@ -68,6 +68,12 @@ i{
     margin-right:10px;
 }
 
+.Cart{
+    position: absolute;
+    right:225px;
+    width: 100px;
+}
+
 .usericon{
     position: absolute;
     right:130px;
