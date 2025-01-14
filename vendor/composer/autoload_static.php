@@ -7,6 +7,12 @@ namespace Composer\Autoload;
 class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
 {
     public static $prefixLengthsPsr4 = array (
+        'e' => 
+        array (
+            'eftec\\bladeone\\' => 15,
+            'eftec\\DocumentStoreOne\\' => 23,
+            'eftec\\' => 6,
+        ),
         'P' => 
         array (
             'PHPMailer\\PHPMailer\\' => 20,
@@ -14,6 +20,18 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
     );
 
     public static $prefixDirsPsr4 = array (
+        'eftec\\bladeone\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eftec/bladeone/lib',
+        ),
+        'eftec\\DocumentStoreOne\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eftec/documentstoreone/lib',
+        ),
+        'eftec\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eftec/daoone/lib',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',

@@ -6,5 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'eftec\\bladeone\\' => array($vendorDir . '/eftec/bladeone/lib'),
+    'eftec\\DocumentStoreOne\\' => array($vendorDir . '/eftec/documentstoreone/lib'),
+    'eftec\\' => array($vendorDir . '/eftec/daoone/lib'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
 );
