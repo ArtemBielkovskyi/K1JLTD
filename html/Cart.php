@@ -8,5 +8,6 @@ include("Header.php");
     </head>
     <body>
         Cart page
+        <!--Under construction-->
     </body>
 </html>

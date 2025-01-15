@@ -1,9 +1,6 @@
 <?php
 include ("Header.php");
-include "../database/db_connect.php";
-$products=$db->select("*")->from("products")->order("productName")->toList();
-echo $blade->run("products.catalog"
-    ,['products'=>$products,'postfix'=>'mysql']);
+include "../database/app.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,5 +9,6 @@ echo $blade->run("products.catalog"
     </head>
     <body>
         Products page
+        <!--Under construction-->
     </body>
 </html>

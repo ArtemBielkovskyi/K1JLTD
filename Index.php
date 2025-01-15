@@ -7,7 +7,8 @@ $messageToUser = "";
 // create a new object
 // configure an SMTP
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_POST['myEmail'])) {
-    require_once './vendor/autoload.php';   
+
+    require_once './vendor/autoload.php';  
     $mail = new PHPMailer();
     $message = $_POST['message'];
     $emailOfUser = $_POST['myEmail'];
