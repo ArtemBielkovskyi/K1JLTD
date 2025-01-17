@@ -7,9 +7,9 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
-    display: flex;
+    /* display: flex; 
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; */
 }
 
 .header{
@@ -142,8 +142,8 @@ input{
     width: 400px;
     height:400px;
     background-color: #fafafa;
-    margin: auto;
-    margin-top:200px;
+    margin: 200px auto;
+    margin-bottom: 0px;
     border-radius: 30px;
     box-shadow: 2px 2px 4px #0000003f;
     padding-top: 10px;
@@ -159,6 +159,7 @@ input{
 }
 
 .block{
+    position: relative;
     background-color: rgb(138, 0, 0);
     width: 300px;
     height: 70px;
@@ -172,15 +173,28 @@ input{
     box-shadow: 2px 2px 4px #00000038;
 }
 
-.loginBlock{
-    margin-bottom: 100px;
-}
 
-.Footer{
+/* .Footer{
     background-color: #282828;
     text-align: center;
     padding: 20px;
     margin-top: auto;
+}
+
+.FooterText{
+    color: white;
+    background-color: #282828;
+    font-size: 0.7em;
+} */
+.Footer{
+    background-color: #282828;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: -200px;
+    right: 0;
+    left: 0;
+    margin:auto;
 }
 
 .FooterText{
