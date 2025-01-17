@@ -5,10 +5,12 @@ include("Header.php");
 $email = $_SESSION['email'];
 $oldUsername = $_SESSION['username'];
 $message = '';
+//connecting to the database and getting username from the database using email of the session
 $result = $conn->prepare("SELECT username FROM userdata WHERE email = '$email'");
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newUsername'])) {
     if ($oldUsername != $_POST['newUsername']) {
         $newUsername = $_POST['newUsername'];
+        //Updating username in the database
         $result->prepare("UPDATE userdata SET username = '$newUsername' WHERE email = '$email'");
         $result->execute();
         $result->store_result();

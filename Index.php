@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Start with PHPMailer class
+// Creating a Contact us form
 use PHPMailer\PHPMailer\PHPMailer;
 $messageToUser = "";
 // create a new object
 // configure an SMTP
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_POST['myEmail'])) {
-
+    //connecting file to our specific host on mailtrap
     require_once './vendor/autoload.php';  
     $mail = new PHPMailer();
     $message = $_POST['message'];
@@ -27,8 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_
     $mail->isHTML(TRUE);
     $mail->Body = $message;
     $mail->AltBody = 'Message from K1J LTD.';
-    // add attachment 
-    // just add the '/path/to/file.pdf'
+    // added attachment 
     $attachmentPath = './confirmations/yourbooking.pdf';
     if (file_exists($attachmentPath)) {
         $mail->addAttachment($attachmentPath, 'yourbooking.pdf');
@@ -100,6 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_
                 <p><input type="submit" class="SendMessage Submit"/></p>
             </form>
         </div>
+        <!-- Displaying a message to the user -->
         <?php if($messageToUser == 'Message has been sent'):?>
             <center><div class="SuccessMessage"><?php echo $messageToUser?></div></center>
         <?php elseif($messageToUser == 'Message could not be sent'):?>

@@ -4,7 +4,7 @@ session_start(); // Start the session
 // Unset all of the session variables 
 $_SESSION = array(); 
  
-// If it's desired to kill the session, also delete the session cookie. 
+// It's desired to kill the session, also delete the session cookie. 
 if (ini_get("session.use_cookies")) { 
     $params = session_get_cookie_params(); 
     setcookie(session_name(), '', time() - 42000, 
@@ -13,10 +13,10 @@ if (ini_get("session.use_cookies")) {
     ); 
 } 
  
-// Finally, destroy the session. 
+// Destroying session. 
 session_destroy(); 
  
-// Redirect to the login page or home page 
-header("Location: ../Index.php"); // Change to your desired redirect page 
+// Redirect to the home page 
+header("Location: ../Index.php"); 
 exit(); 
 ?>

@@ -5,18 +5,21 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    
+    //checking if email is in the database
     $stmt = $conn->prepare("SELECT password, username FROM userdata WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
+    //if email exist we are going to check if password is correct
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($password, $username);
         $stmt->fetch();
         if (password_verify($_POST["password"], $password)){
+            //if password is correct we are going to start session and redirect user to the account page
             session_regenerate_id();
             $_SESSION['email'] = $email;
             $_SESSION['username'] = $username;
+            //updating information for the account when it was logged in last time
             $query = $conn->prepare("UPDATE userdata SET last_login = NOW() WHERE email = ?");
             $query->bind_param("s", $email);
             $query->execute();

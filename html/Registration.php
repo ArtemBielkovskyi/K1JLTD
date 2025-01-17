@@ -14,10 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //password validation 
     if($existingEmail->num_rows>0){
         $message = "Email already exist!";
-    } 
+    } //setting up password requirements
     elseif(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['password'])){
         $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
-    } 
+    } //checking if passwords are the same
     elseif($_POST['password']!==$_POST['password2']) {
         $message = "Passwords don't match!";
     } else{

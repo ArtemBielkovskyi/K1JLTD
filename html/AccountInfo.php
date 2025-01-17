@@ -69,7 +69,6 @@
                 <?php if($message == "Wrong code!"): ?>
                     <span class="IncorrectCode">Wrong code!</span>
                 <?php endif; ?>
-                <!-- under construction -->
                 <div class="space"></div>
                 <button class="changeUsernameButton" onclick="window.open('ChangeUsername.php','_self')">Change username</button>
                 <button class="changePasswordButton" onclick="window.open('ChangePassword.php','_self')">Change password</button>

@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newpassword'])) {
     if (password_verify($_POST["oldpassword"], $password)) {
         //this is going to work only if existing password is not the same as old one
         if ($_POST["oldpassword"] !== $_POST["newpassword"]) {
+            //giving specific password requirements
             if(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/',$_POST['newpassword'])){
                 $message = "Password must be at least 8 characters long, have one lower and one upper case letters, including minimum one special character!";
             }else {
@@ -65,6 +66,7 @@ $conn->close();
                 <div class="input-group SubmutButton">
                     <button type="submit" class="btn" name="change">Change</button>
                 </div>
+                <!-- Displaying messages to the user -->
                 <?php if($message == 'Password changed successfully!'): ?>
                     <div class="SuccessBlock"><?php echo $message ?></div>
                 <?php elseif($message == 'New password is the same as the old one!'): ?>
