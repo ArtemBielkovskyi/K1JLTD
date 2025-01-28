@@ -1,14 +1,52 @@
+<!-- need to instal and plase composer phar into your directory for this piece of code to work and install composer programmaticaly -->
+
+<?php
+// // Define the path to the Composer executable
+// $composerPhar = __DIR__ . '/composer.phar';
+
+// // Define the command to install Composer dependencies
+// $command = 'php ' . escapeshellarg($composerPhar) . ' install';
+
+// // Execute the command
+// $output = [];
+// $return_var = 0;
+// exec($command, $output, $return_var);
+
+// // Output the result
+// if ($return_var === 0) {
+//     echo "Dependencies installed successfully:\n";
+//     echo implode("\n", $output);
+// } else {
+//     echo "Failed to install dependencies. Error code: $return_var\n";
+//     echo implode("\n", $output);
+// }
+
+// // Include the Composer autoload file
+// require_once(__DIR__ . '/vendor/autoload.php');
+
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+
+// // Your code using PHPMailer goes here
+?>
+
 <?php
 session_start();
+require_once(__DIR__ . '/vendor/autoload.php');
 
-// Creating a Contact us form
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// // Creating a Contact us form
+// use PHPMailer\PHPMailer\PHPMailer;
 $messageToUser = "";
 // create a new object
 // configure an SMTP
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message']) && isset($_POST['myEmail'])) {
     //connecting file to our specific host on mailtrap
-    require_once './vendor/autoload.php';  
+    // require_once './vendor/autoload.php';  
     $mail = new PHPMailer();
     $message = $_POST['message'];
     $emailOfUser = $_POST['myEmail'];
